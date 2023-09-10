@@ -9,7 +9,6 @@ public class Main {
 		Map map = new Map();
 
 		
-		
 		// Create character 
 		System.out.println(
 				"WELCOME TO *Special Agent Bomb Technician* GAME!"
@@ -37,20 +36,12 @@ public class Main {
 						map.getCurrentX(), 
 						map.getCurrentY())
 				);
-		
+		// show map
 		map.printMap();
 
 		
 		while (!map.isWin()) {
-			// Cheat mode
-//			System.out.println(
-//					String.format("Winning position is %s %s",
-//							map.getWinX(),
-//							map.getWinY()
-//							)
-//					);
-			
-			
+
 			// Get move directions from player
 			System.out.println(
 					"Enter your move (choose only between N, E, S and W): ");
@@ -72,15 +63,8 @@ public class Main {
 					);
 			map.printMap();
 			
-			// temp display info on map size
-//			System.out.println(
-//					String.format(
-//							"temp info: size of the field is %s x %s",
-//							map.getSizeX(),
-//							map.getSizeY()
-//							)
-//					);
 			
+			// check if move is a win
 			if (map.isWin()) {
 				System.out.println(
 						String.format("\n*** Congrats, %s! You WIN!!! ***",

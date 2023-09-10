@@ -214,9 +214,5 @@ public class Map {
 		this.userSquare = userSquare;
 	}
 	
-//	public void getUserSquare() {
-//		return userSquare;
-//	}
-
-	
 }
+
