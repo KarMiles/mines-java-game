@@ -27,21 +27,22 @@ public class Map {
 		// common
 		Scanner sc = new Scanner(System.in);		
 		String userSquare;
+		userSquare = sc.nextLine();
 		
 		try {
-			userSquare = sc.nextLine();
+			int userSquareInt = Integer.parseInt(userSquare);
 		} catch (NumberFormatException e) {
 			System.out.println(
 					"Please only enter a number!"
 					+ "\nHow large a square would you like? : ");
-			userSquare = sc.nextLine();
+			enterCustomSize();
 		} catch (Exception e) {
 			System.out.println("Unchecked Exception cought - \r\n");
 			e.printStackTrace();
 			System.out.println(
 					"Please only enter a number!"
 					+ "\nHow large a square would you like? : ");
-			userSquare = sc.nextLine();
+			enterCustomSize();
 		}
 		
 		
@@ -83,7 +84,7 @@ public class Map {
 	}	
 	
 
-	public void move(String direction) {
+	public boolean move(String direction) {
 		
 		switch(direction) {
 			case "N":
@@ -92,33 +93,36 @@ public class Map {
 				} else {
 					currentY = 1;
 				}
-				break; 
+				return true; 
 			case "E":
 				if (currentX < sizeX) {
 					currentX++;
 				} else {
 					currentX = 1;
 				}
-				break; 
+				return true; 
 			case "S":
 				if (currentY > 1) {
 					currentY--;
 				} else {
 					currentY = sizeY;
 				}
-				break; 
+				return true; 
 			case "W":
 				if (currentX > 1) {
 					currentX--;
 				} else {
 					currentX = sizeX;
 				}
-				break; 
+				return true; 
 			default:
 			  System.out.println(
-					  "To make a move "
-					  + "enter letter N, E, S or W) : "
+					  "This is not a valid move. \n"
+					  + "Please enter letter "
+					  + "N (for North), E (for East), "
+					  + "S (for South), or W (for West)! "
 					  );
+			  return false;
 		}
 	}
 	
